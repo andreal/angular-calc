@@ -1,0 +1,28 @@
+.calculator {
+	border: 1px solid #000000;
+	position: absolute;
+}
+
+.calculator .calculatorScreen {
+	border: 1px solid #000000;
+	padding: 5px;
+}
+
+.calculator .calculatorScreen-buttonRow {
+	float: left;
+	clear: both;
+}
+
+.calculator .calculatorScreen-buttonRow .calculatorScreen-button {
+	float: left;
+    border: 1px solid #000000;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+	cursor: pointer;
+	padding-top: 10px;
+}
+
+.calculator .calculatorScreen-buttonRow .calculatorScreen-button#hover {
+	background-color: #84BE6A;
+}

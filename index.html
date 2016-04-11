@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="calculator.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script type="text/javascript" src="calcApp.js"></script>
+		<script type="text/javascript" src="calcCtrl.js"></script>
+	</head>
+	<body ng-app="calcApp">
+		<div class="calculator" ng-controller="calcCtrl">
+			<div class="calculatorScreen">{{ total }}</div>
+			<div class="calculatorScreen-buttonRow">
+				<div class="calculatorScreen-button" id="one" ng-click="enterNumber(1)">1</div>
+				<div class="calculatorScreen-button" id="two" ng-click="enterNumber(2)">2</div>
+				<div class="calculatorScreen-button" id="three" ng-click="enterNumber(3)">3</div>
+				<div class="calculatorScreen-button" id="add" ng-click="add()">+</div>
+				<div class="calculatorScreen-button" id="multiply" ng-click="multiply()">*</div>	
+			</div>
+			<div class="calculatorScreen-buttonRow">
+				<div class="calculatorScreen-button" id="four" ng-click="enterNumber(4)">4</div>
+				<div class="calculatorScreen-button" id="five" ng-click="enterNumber(5)">5</div>
+				<div class="calculatorScreen-button" id="six" ng-click="enterNumber(6)">6</div>
+				<div class="calculatorScreen-button" id="subtract" ng-click="subtract()">-</div>
+				<div class="calculatorScreen-button" id="divide" ng-click="divide()">/</div>
+			</div>
+			<div class="calculatorScreen-buttonRow">
+				<div class="calculatorScreen-button" id="seven" ng-click="enterNumber(7)">7</div>
+				<div class="calculatorScreen-button" id="eight" ng-click="enterNumber(8)">8</div>
+				<div class="calculatorScreen-button" id="nine" ng-click="enterNumber(9)">9</div>
+				<div class="calculatorScreen-button" id="equals" ng-click="equals()">=</div>
+				<div class="calculatorScreen-button" id="clear" ng-click="clear()">C</div>	
+			</div>			
+		</div>
+	</body>
+</html>
