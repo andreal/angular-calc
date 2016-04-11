@@ -30,8 +30,6 @@ app.controller("calcCtrl", function($scope) {
 		} else {
 			total = $scope.firstNumber - $scope.secondNumber;
 		}
-		$scope.firstNumber = -1;
-		$scope.secondNumber = -1;
 		
 		$scope.total = total;
 	}
@@ -39,11 +37,10 @@ app.controller("calcCtrl", function($scope) {
 	$scope.enterNumber = function(number) {
 		if ($scope.firstNumber < 0) {
 			$scope.firstNumber = number;
-			$scope.total = number;
 		} else {
 			$scope.secondNumber = number;
-			$scope.total = number;
 		}
+		$scope.total = number;
 	}
 	
 	$scope.clear = function() {
