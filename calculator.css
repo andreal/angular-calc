@@ -1,16 +1,20 @@
 .calculator {
-	border: 1px solid #000000;
+	border: 2px solid #000000;
 	position: absolute;
 }
 
 .calculator .calculatorScreen {
 	border: 1px solid #000000;
 	padding: 5px;
+	margin: 5px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px #888888;
 }
 
 .calculator .calculatorScreen-buttonRow {
 	float: left;
 	clear: both;
+	border-top: 1px solid #000000;
 }
 
 .calculator .calculatorScreen-buttonRow .calculatorScreen-button {
@@ -21,8 +25,11 @@
     text-align: center;
 	cursor: pointer;
 	padding-top: 10px;
+	margin: 5px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 5px #888888;
 }
 
-.calculator .calculatorScreen-buttonRow .calculatorScreen-button#hover {
-	background-color: #84BE6A;
+.calculator .calculatorScreen-buttonRow .calculatorScreen-button:hover {
+	box-shadow: 1px 1px 5px #444444;
 }
