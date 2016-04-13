@@ -67,7 +67,9 @@ app.controller("calcCtrl", function($scope) {
 	
 	var operation = function(operand) {
 		$scope.operators.push(operand);
-		$scope.numbers.push($scope.currentNumber);
-		$scope.currentNumber = '';
+		if ($scope.currentNumber !== '') {
+			$scope.numbers.push($scope.currentNumber);
+			$scope.currentNumber = '';
+		} 		
 	}
 });
