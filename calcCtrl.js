@@ -1,51 +1,72 @@
 app.controller("calcCtrl", function($scope) {
-	$scope.firstNumber = -1;
-	$scope.secondNumber = -1;
-	$scope.operator = '*';
+	$scope.currentNumber = '';
+	$scope.numbers = [];
+	$scope.operators = [];
 	$scope.total = 0;
+	
 	$scope.add = function() {
-		$scope.operator = '+';
+		$scope.operators.push('+');
+		$scope.numbers.push($scope.currentNumber);
+		$scope.currentNumber = '';
 	}
 	
 	$scope.subtract = function() {
-		$scope.operator = '-';
+		$scope.operators.push('-');
+		$scope.numbers.push($scope.currentNumber);
+		$scope.currentNumber = '';
 	}
 	
 	$scope.multiply = function() {
-		$scope.operator = '*';
+		$scope.operators.push('*');
+		$scope.numbers.push($scope.currentNumber);
+		$scope.currentNumber = '';
 	}
 	
 	$scope.divide = function() {
-		$scope.operator = '/';
+		$scope.operators.push('/');
+		$scope.numbers.push($scope.currentNumber);
+		$scope.currentNumber = '';
 	}
 	
 	$scope.equals = function() {
-		total = 0;
-		if ($scope.operator == '*') {
-			total = $scope.firstNumber * $scope.secondNumber;
-		} else if ($scope.operator == '/') {
-			total = $scope.firstNumber / $scope.secondNumber;
-		} else if ($scope.operator == '+') {
-			total = $scope.firstNumber + $scope.secondNumber;
-		} else {
-			total = $scope.firstNumber - $scope.secondNumber;
+		if ($scope.currentNumber !== '') {
+			$scope.numbers.push($scope.currentNumber);
+			$scope.currentNumber = '';
 		}
 		
-		$scope.total = total;
+		currentTotal = 0;
+		operatorCount = 0;
+		for (i = 0; i < $scope.numbers.length; i++) {
+			if (i == 0) {
+				currentTotal = $scope.numbers[0];
+				continue;
+			}
+			
+			if ($scope.operators[operatorCount] == '*') {
+				currentTotal = +currentTotal * +$scope.numbers[i];				
+			} else if ($scope.operators[operatorCount] == '/') {
+				currentTotal = +currentTotal / +$scope.numbers[i];								
+			} else if ($scope.operators[operatorCount] == '+') {
+				currentTotal = +currentTotal + +$scope.numbers[i];												
+			} else {
+				currentTotal = +currentTotal - +$scope.numbers[i];												
+			}
+			
+			operatorCount++;
+		}
+				
+		$scope.total = currentTotal;
 	}
 	
 	$scope.enterNumber = function(number) {
-		if ($scope.firstNumber < 0) {
-			$scope.firstNumber = number;
-		} else {
-			$scope.secondNumber = number;
-		}
-		$scope.total = number;
+		$scope.currentNumber = $scope.currentNumber + '' + number;
+		$scope.total = $scope.currentNumber;
 	}
 	
 	$scope.clear = function() {
-		$scope.firstNumber = -1;
-		$scope.secondNumber = -1;
+		$scope.numbers = [];
+		$scope.operators = [];
 		$scope.total = 0; 
+		$scope.currentNumber = '';
 	}
 });
