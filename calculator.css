@@ -1,3 +1,10 @@
+body {
+    width: 300px;
+    margin: 20px auto;
+    height: 300px;
+    font-size: 30px;
+}
+
 .calculator {
 	border: 2px solid #000000;
 	position: absolute;
@@ -6,9 +13,10 @@
 .calculator .calculatorScreen {
 	border: 1px solid #000000;
 	padding: 5px;
-	margin: 5px;
+	margin: 8px;
 	border-radius: 5px;
 	box-shadow: 2px 2px 5px #888888;
+	padding-left: 14px;
 }
 
 .calculator .calculatorScreen-buttonRow {
@@ -20,12 +28,12 @@
 .calculator .calculatorScreen-buttonRow .calculatorScreen-button {
 	float: left;
     border: 1px solid #000000;
-    width: 30px;
-    height: 30px;
+	width: 40px;
+	height: 45px;
     text-align: center;
 	cursor: pointer;
 	padding-top: 12px;
-	margin: 5px;
+	margin: 8px;
 	border-radius: 5px;
 	box-shadow: 2px 2px 5px #888888;
 }

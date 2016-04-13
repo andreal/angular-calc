@@ -5,27 +5,19 @@ app.controller("calcCtrl", function($scope) {
 	$scope.total = 0;
 	
 	$scope.add = function() {
-		$scope.operators.push('+');
-		$scope.numbers.push($scope.currentNumber);
-		$scope.currentNumber = '';
+		operation('+');
 	}
 	
 	$scope.subtract = function() {
-		$scope.operators.push('-');
-		$scope.numbers.push($scope.currentNumber);
-		$scope.currentNumber = '';
+		operation('-');		
 	}
 	
 	$scope.multiply = function() {
-		$scope.operators.push('*');
-		$scope.numbers.push($scope.currentNumber);
-		$scope.currentNumber = '';
+		operation('*');				
 	}
 	
 	$scope.divide = function() {
-		$scope.operators.push('/');
-		$scope.numbers.push($scope.currentNumber);
-		$scope.currentNumber = '';
+		operation('/');				
 	}
 	
 	$scope.equals = function() {
@@ -34,8 +26,8 @@ app.controller("calcCtrl", function($scope) {
 			$scope.currentNumber = '';
 		}
 		
-		currentTotal = 0;
-		operatorCount = 0;
+		var currentTotal = 0;
+		var operatorCount = 0;
 		for (i = 0; i < $scope.numbers.length; i++) {
 			if (i == 0) {
 				currentTotal = $scope.numbers[0];
@@ -52,10 +44,13 @@ app.controller("calcCtrl", function($scope) {
 				currentTotal = +currentTotal - +$scope.numbers[i];												
 			}
 			
-			operatorCount++;
+			operatorCount = operatorCount + 1;
 		}
 				
 		$scope.total = currentTotal;
+		$scope.numbers = [];
+		$scope.numbers.push($scope.total);
+		$scope.operators = [];
 	}
 	
 	$scope.enterNumber = function(number) {
@@ -67,6 +62,12 @@ app.controller("calcCtrl", function($scope) {
 		$scope.numbers = [];
 		$scope.operators = [];
 		$scope.total = 0; 
+		$scope.currentNumber = '';
+	}
+	
+	var operation = function(operand) {
+		$scope.operators.push(operand);
+		$scope.numbers.push($scope.currentNumber);
 		$scope.currentNumber = '';
 	}
 });
