@@ -3,23 +3,7 @@ app.controller("calcCtrl", function($scope) {
 	$scope.numbers = [];
 	$scope.operators = [];
 	$scope.total = 0;
-	
-	$scope.add = function() {
-		operation('+');
-	}
-	
-	$scope.subtract = function() {
-		operation('-');		
-	}
-	
-	$scope.multiply = function() {
-		operation('*');				
-	}
-	
-	$scope.divide = function() {
-		operation('/');				
-	}
-	
+		
 	$scope.equals = function() {
 		if ($scope.currentNumber !== '') {
 			$scope.numbers.push($scope.currentNumber);
@@ -65,7 +49,7 @@ app.controller("calcCtrl", function($scope) {
 		$scope.currentNumber = '';
 	}
 	
-	var operation = function(operand) {
+	$scope.operation = function(operand) {
 		$scope.operators.push(operand);
 		if ($scope.currentNumber !== '') {
 			$scope.numbers.push($scope.currentNumber);
